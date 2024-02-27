@@ -1,7 +1,7 @@
 class WordClockLayout:
     def __init__(self, words):
         self.words = words
-        self.grid_size = 20  # Initial arbitrary grid size, might need adjustment
+        self.grid_size = 10  # Initial arbitrary grid size, might need adjustment
         self.grid = self.initialize_grid(self.grid_size)
         self.placements = []
 
@@ -51,7 +51,7 @@ class WordClockLayout:
             print(''.join(row))
 
 def main():
-    words = ["ITIS", "HALF", "TEN", "QUARTER", "TWENTY", "FIVE", "MINUTES", "PAST", "TO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN", "ELEVEN", "TWELVE", "OCLOCK"]
+    words = ["ITXISY", "HALF", "TEN", "QUARTER", "TWENTY", "FIVE", "MINUTES", "PAST", "TO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN", "ELEVEN", "TWELVE", "OCLOCK"]
     layout = WordClockLayout(words)
     layout.generate_layout()
     layout.print_grid()
