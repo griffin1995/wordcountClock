@@ -6,18 +6,24 @@ class WordClockLayout:
         self.placements = []
 
     def initialize_grid(self, size):
-        return [[' ' for _ in range(size)] for _ in range(size)]
+        return [[" " for _ in range(size)] for _ in range(size)]
 
     def can_place_word(self, word, row, col, horizontal=True):
         """Check if the word can be placed at the specified location."""
         if horizontal:
             if col + len(word) > self.grid_size:
                 return False
-            return all(self.grid[row][c] in [' ', letter] for c, letter in enumerate(word, start=col))
+            return all(
+                self.grid[row][c] in [" ", letter]
+                for c, letter in enumerate(word, start=col)
+            )
         else:  # Vertical placement
             if row + len(word) > self.grid_size:
                 return False
-            return all(self.grid[r][col] in [' ', letter] for r, letter in enumerate(word, start=row))
+            return all(
+                self.grid[r][col] in [" ", letter]
+                for r, letter in enumerate(word, start=row)
+            )
 
     def place_word(self, word, row, col, horizontal=True):
         """Place the word on the grid at the specified location."""
@@ -48,13 +54,37 @@ class WordClockLayout:
     def print_grid(self):
         """Print the grid for visualization."""
         for row in self.grid:
-            print(''.join(row))
+            print("".join(row))
+
 
 def main():
-    words = ["ITXISY", "HALF", "TEN", "QUARTER", "TWENTY", "FIVE", "MINUTES", "PAST", "TO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN", "ELEVEN", "TWELVE", "OCLOCK"]
+    words = [
+        "ITXISY",
+        "HALF",
+        "TEN",
+        "QUARTER",
+        "TWENTY",
+        "FIVE",
+        "MINUTES",
+        "PAST",
+        "TO",
+        "ONE",
+        "TWO",
+        "THREE",
+        "FOUR",
+        "FIVE",
+        "SIX",
+        "SEVEN",
+        "EIGHT",
+        "NINE",
+        "TEN",
+        "ELEVEN",
+        "TWELVE",
+        "OCLOCK",
+    ]
     layout = WordClockLayout(words)
     layout.generate_layout()
     layout.print_grid()
 
+
 main()
-##test
